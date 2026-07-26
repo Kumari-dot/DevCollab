@@ -1,5 +1,6 @@
 package com.devcollab.backend.model;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
@@ -9,7 +10,10 @@ public class Task {
 
     @Id
     private String id;
+
+    @NotBlank(message = "Task title cannot be blank")
     private String title;
+
     private String description;
     private String status; // e.g., "TODO", "IN_PROGRESS", "DONE"
     private Integer position; // For ordering cards within a column

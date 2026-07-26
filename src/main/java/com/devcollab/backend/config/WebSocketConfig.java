@@ -14,7 +14,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // This is the URL where the frontend will connect to establish the WebSocket link
         registry.addEndpoint("/ws-kanban")
-                .setAllowedOriginPatterns("*"); // Allows connections from your frontend development server
+                .setAllowedOriginPatterns("*")
+                .withSockJS(); // Added SockJS fallback support
     }
 
     @Override
